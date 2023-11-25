@@ -79,12 +79,14 @@ public class UserController {
 						@RequestParam(name = "redirect", defaultValue = "/") String redirect, Model model , HttpServletRequest request) {
 		
 		if(bindingResult.hasErrors()) {
+			log.info("헤즈에러 부분");
 			return "/view/user/login";
 		}
 		
 		User loginUser = userService.login(loginForm.getEmail(), loginForm.getPasswd());
 		
 		if(loginUser==null) {
+			log.info("null");
 			bindingResult.reject("loginFail", "ID와 비밀번호를 확인하여 주십시오");
 			return "/view/user/login";
 		}
@@ -104,9 +106,9 @@ public class UserController {
 		/*
 		 * 로그인 후 로그인 하기 전 페이지로 redirect하기
 		 */
-		String uri = request.getHeader("Referer");
-		request.getSession().setAttribute("prevPage", uri);
-		redirect=(String)session.getAttribute("prevPage");
+//		String uri = request.getHeader("Referer");
+//		request.getSession().setAttribute("prevPage", uri);
+//		redirect=(String)session.getAttribute("prevPage");
 		return "redirect:"+redirect;
 	}
 	

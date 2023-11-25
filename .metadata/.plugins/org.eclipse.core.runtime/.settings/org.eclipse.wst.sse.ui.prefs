@@ -1,13 +1,9 @@
 =\=\=\=\=\=\=
 <<<<<<<=HEAD
->>>>>>>=882add33a8f2edf93d9c35e757537dd1205ec767
+>>>>>>>=895d5e1424df476a257276e80792a9b102a5fe46
 content_assist_completion_replacement_background=200,200,0
 content_assist_completion_replacement_foreground=194,0,0
-<<<<<<< HEAD
 content_assist_number_of_computers=27
-=======
-content_assist_number_of_computers=25
->>>>>>> 895d5e1424df476a257276e80792a9b102a5fe46
 content_assist_parameters_background=48,54,59
 content_assist_parameters_foreground=235,237,239
 content_assist_proposals_background=48,54,59

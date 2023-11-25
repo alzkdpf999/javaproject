@@ -19,7 +19,6 @@ import soccer.deploy.match.myDto.rank;
 import soccer.deploy.match.repository.JpaMatchRepository;
 
 @Service
-@Transactional
 @Slf4j
 public class MatchChoungServiceImpl implements MatchChoungService{
 	@Autowired

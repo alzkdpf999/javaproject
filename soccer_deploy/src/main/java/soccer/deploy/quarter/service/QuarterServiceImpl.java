@@ -14,7 +14,7 @@ import soccer.deploy.quarter.entity.Quarter;
 import soccer.deploy.quarter.repository.JpaQuarterRepository;
 
 @Service
-@Transactional
+
 public class QuarterServiceImpl implements QuarterService {
 	@Autowired
 	private JpaQuarterRepository jpaQuarterRepository;
@@ -25,11 +25,13 @@ public class QuarterServiceImpl implements QuarterService {
 		return jpaQuarterRepository.findAllByMatchId(id,Sort.by("id"));
 	}
 	@Override
+	@Transactional
 	public void updateInsertQuarter(List<Quarter> outcome) {
 		jpaQuarterRepository.saveAll(outcome);
 	}
 	
 	@Override
+	@Transactional
 	public void registQuarter(List<Quarter> quarter) {
 		jpaQuarterRepository.saveAll(quarter);
 	}

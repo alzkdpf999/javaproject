@@ -142,7 +142,7 @@
 												<input type="password" class="form-control"	placeholder="PASSWORD" name="passwd">
 											</div>
 												<form:errors path = "*" element = "div" cssClass="field-error"/>
-      											<input type="hidden" name="redirect" value="${param.redirect}">
+      											<input type="hidden" name="redirect" value="${header.referer}">
 											<div class="form-group">
 												<button class="btn btn-primary py-3 px-3" type="submit">Login</button>
 												<!-- <input type="submit" class="btn btn-primary py-3 px-3" value="Login" style="margin-right: 10px;"> -->

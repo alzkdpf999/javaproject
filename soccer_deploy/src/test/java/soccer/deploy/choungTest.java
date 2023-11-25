@@ -11,6 +11,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
 
 import lombok.extern.slf4j.Slf4j;
+import soccer.deploy.article.entity.Article;
+import soccer.deploy.article.repository.JpaArticleRepository;
+import soccer.deploy.article.service.ArticleService;
 import soccer.deploy.board.service.BoardService;
 import soccer.deploy.entry.service.EntryService;
 import soccer.deploy.match.entity.Match;
@@ -31,25 +34,22 @@ public class choungTest {
 	private EntryService entryService;
 	@Autowired
 	private MatchService m;
-	@Test
-	@Disabled	
-	void test1(){
-		
-	}
+	
+	@Autowired
+	private JpaArticleRepository jp;
+	@Autowired
+	private ArticleService a;
 	
 	@Test
 	void test3() throws ParseException {
-		LocalDateTime localDate = LocalDateTime.now();
-		List<Match> match = m.findMatch("23", "10");
-//		log.info("{}",match.get(0).getMatchDate().after(null))
-//		List<Long> resultId = matchChoungService.findRecentTwoResultMatchId();
-//		HashMap<String, MatchDto> resultMatch = matchChoungService.recentTwoMatchResult(resultId);
-//		log.info("{}",resultMatch.get("second").getMatchId());
-		Timestamp timestamp2 = Timestamp.valueOf(localDate);
-		log.info("{}",timestamp2);
-		log.info("{}",match.get(0).getMatchDate().getDate());
-		log.info("{}",match.get(0).getMatchDate().after(timestamp2));
-		log.info("{}",m.matchExpiration(match));
+		Article article = new Article();
 		
+		article.setBoardId(10L);
+		article.setContent("asd");
+		article.setWriter("ksa@ac.kr");
+		article.setSubject("asd");
+		
+log.info("{}",a.RegArticleNextPk(article).getArticleId());
 	}
 }
+

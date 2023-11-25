@@ -10,12 +10,13 @@ import soccer.deploy.image.entity.Image;
 import soccer.deploy.image.repository.JpaImageRepository;
 
 @Service
-@Transactional
+
 public class ImageServiceImpl implements ImageService {
 
 	@Autowired
 	private JpaImageRepository jpaImageRepository;
 	
+	@Transactional	
 public void RegImage(List<Image> image) {
 	jpaImageRepository.saveAll(image);	
 }

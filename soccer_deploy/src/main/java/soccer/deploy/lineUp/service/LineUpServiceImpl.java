@@ -10,12 +10,13 @@ import soccer.deploy.lineUp.entity.LineUp;
 import soccer.deploy.lineUp.repository.JpaLineUpRepository;
 
 @Service
-@Transactional
+
 public class LineUpServiceImpl implements LineUpService {
 	@Autowired
 	private JpaLineUpRepository jpaLineUpRepository;
 	
 	@Override
+	@Transactional
 	public void insertLineUp(List<LineUp> LineUp) {
 		// TODO Auto-generated method stub
 		jpaLineUpRepository.saveAll(LineUp);

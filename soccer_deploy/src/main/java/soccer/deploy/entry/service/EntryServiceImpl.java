@@ -18,7 +18,7 @@ import soccer.deploy.user.entity.User;
 
 @Slf4j
 @Service
-@Transactional
+
 public class EntryServiceImpl implements EntryService {
 	@Autowired
 	private JpaEntryRepository jpaentryRepository;

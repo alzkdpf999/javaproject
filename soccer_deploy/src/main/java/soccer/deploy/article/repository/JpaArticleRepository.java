@@ -9,6 +9,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+import org.springframework.transaction.annotation.Transactional;
 
 import soccer.deploy.article.dto.ArticleDto;
 import soccer.deploy.article.entity.Article;
@@ -16,6 +17,7 @@ import soccer.deploy.article.entity.Article;
 
 public interface JpaArticleRepository extends JpaRepository<Article, String>{
 	@Modifying
+	@Transactional
 	@Query(value="INSERT INTO article(article_id,board_id,writer,subject,content,group_no,level_no,order_no)"
 			+ "VALUES(article_seq.NEXTVAL,:#{#artic.boardId},:#{#artic.writer},:#{#artic.subject},:#{#artic.content},article_seq.CURRVAL,0,0)",nativeQuery = true)
 	public void registArticle(@Param("artic") Article article);
@@ -30,14 +32,15 @@ public interface JpaArticleRepository extends JpaRepository<Article, String>{
 	
 	public List<Article> findAllByBoardIdAndGroupNoOrderByOrderNo(Long boardId,Long groupNo);
 	@Modifying
+	@Transactional
 	@Query(value="Update Article a set a.orderNo = a.orderNo+1 WHERE a.orderNo >=:orderNo AND a.groupNo=:groupNo")
 	public void UpdateOrderNo(@Param("orderNo") Long orderNo,@Param("groupNo") Long groupNo);
 	
 	@Modifying
+	@Transactional
 	@Query(value="Update Article a set a.hitcount = a.hitcount+1 WHERE a.articleId = :articleId")
 	public void UpdateHitcount(@Param("articleId") Long articleId);
 	
-	public Article findByArticleId(Long asd);
 
 	
 }

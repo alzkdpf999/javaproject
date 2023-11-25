@@ -13,7 +13,6 @@ import soccer.deploy.board.repository.JpaBoardRepository;
 
 @Slf4j
 @Service
-@Transactional
 public class BoardServiceImpl implements BoardService {
 	@Autowired
 	private JpaBoardRepository jpaBoardRepository;

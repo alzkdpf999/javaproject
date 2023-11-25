@@ -14,14 +14,14 @@ import soccer.deploy.article.entity.Article;
 import soccer.deploy.article.repository.JpaArticleRepository;
 
 @Service
-@Transactional
+
 @Slf4j
 public class ArticleServiceImpl implements ArticleService {
 	@Autowired
 	private JpaArticleRepository jpaArticleRepository;
 	
 	@Override
-	
+	@Transactional
 	public Article RegArticleNextPk(Article article) {
 		 
 		jpaArticleRepository.registArticle(article);
@@ -34,16 +34,19 @@ public class ArticleServiceImpl implements ArticleService {
 	}
 	
 	@Override
+	@Transactional
 	public List<Article> detailArticle(Long boardId, Long groupNo) {
 		jpaArticleRepository.UpdateHitcount(groupNo);
 		return jpaArticleRepository.findAllByBoardIdAndGroupNoOrderByOrderNo(boardId, groupNo);
 	}
 	@Override
+	@Transactional
 	public void RegDatArticle(Article article) {
 		jpaArticleRepository.UpdateHitcount(article.getGroupNo());
 		jpaArticleRepository.save(article);
 	}
 	@Override
+	@Transactional
 	public void RegDaDatArticle(Article article) {
 		jpaArticleRepository.UpdateHitcount(article.getGroupNo());
 		jpaArticleRepository.UpdateOrderNo(article.getOrderNo(),article.getGroupNo());

@@ -21,7 +21,6 @@ import soccer.deploy.match.myDao.matchDao;
 import soccer.deploy.match.repository.JpaMatchRepository;
 
 @Service
-@Transactional
 @Slf4j
 public class MatchServiceImpl implements MatchService {
 
