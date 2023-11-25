@@ -23,7 +23,7 @@ Soccer_deploy 프로젝트는 기존 축구동호회에서 일정관리, 경기�
 |순위 페이지|선수명단 페이지|
 ![image](https://user-images.githubusercontent.com/43395355/222041977-606b7def-3c9c-4917-91b5-7b34e5337cb2.png) | ![image](https://user-images.githubusercontent.com/43395355/222042172-2ca5f751-63fa-422e-8978-59b2b10aa6eb.png)
 |포메이션 페이지|내 신청목록 페이지|
-![image](https://user-images.githubusercontent.com/43395355/222042255-b4d16189-b836-490a-9ccf-47780ba8bb96.png) | ![image](https://user-images.githubusercontent.com/43395355/222042365-66ace12a-df91-4a30-be82-d4fdbaa91fdf.png)
+![image](https://user-images.githubusercontent.com/43395355/222042255-b4d16189-b836-490a-9ccf-47780ba8bb96.png) | ![image](https://github.com/alzkdpf999/javaproject/assets/100851583/28de9659-b895-4c79-b008-679d929ebb41)
 |게시글 목록 페이지|게시글 상세 페이지|
 ![image](https://user-images.githubusercontent.com/43395355/222043131-16ebc6b8-df33-4b26-b3f9-3e6ca02cac72.png) | ![image](https://user-images.githubusercontent.com/43395355/222043190-6fdfa36d-a4ff-43f0-a276-293af784c84d.png)
 
@@ -48,4 +48,4 @@ Soccer_deploy 프로젝트는 기존 축구동호회에서 일정관리, 경기�
   - 공지사항을 통해 관리자는 유저들에게 특이사항을 공유할 수 있습니다.
 ---
 # DB 구조
-![image](https://user-images.githubusercontent.com/43395355/222046337-9fda64d8-1aca-443d-81d9-185f7769753a.png)
+![image](https://github.com/alzkdpf999/javaproject/assets/100851583/e539bb08-4fb2-4270-9327-1689b4cbfee4)
