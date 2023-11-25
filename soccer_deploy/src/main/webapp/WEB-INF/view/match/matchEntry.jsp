@@ -100,7 +100,6 @@
 
 						<thead>
 							<tr>
-								<th>신청순서</th>
 								<th>이름</th>
 								<th>나이</th>
 								<th>포지션</th>

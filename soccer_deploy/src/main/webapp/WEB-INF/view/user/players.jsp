@@ -42,6 +42,21 @@
 
 </head>
 
+
+<style>
+#matchProfile{
+	border-radius: 100%;
+	width: 30px;
+	height: 30px;
+}
+#matchProfile:hover{
+	border: #F00 2px solid;
+}
+
+.table th, .table td {
+    text-align: center;
+}
+</style>
 <body>
 <jsp:include page="/WEB-INF/view/include/header.jsp"></jsp:include>
 	<div class="wrap bg-visual"
@@ -69,11 +84,10 @@
 						<table class="table custom-table">
 							<thead>
 								<tr>
-									<th>Player / Back Number</th>
-									<th>Position</th>
-									<th>Goal</th>
-									<th>Assist</th>
-									<th>Matches</th>
+									<th>이름</th>
+								<th>나이</th>
+								<th>포지션</th>
+								<th>등번호</th>
 								</tr>
 							</thead>
 
@@ -81,11 +95,10 @@
 
 								<c:forEach items="${userList.content}" var="user" varStatus="status">
 									<tr>
-										<td class="text-white"><a href="/user/${user.id}"class="text-white">${user.name}</a> &nbsp|&nbsp ${user.backNum}</td>
-										<td class="text-white">${user.position}</td>
-										<td class="text-white">10</td>
-										<td class="text-white">4</td>
-										<td class="text-white">8</td>
+										<td class="text-white"><img src="/images/profile/${user.imgFileName}" id="matchProfile"><a href="/user/${user.id}"class="text-white">${user.name}</a></td>
+										<td class="text-white">${user.age}</td>
+									<td class="text-white">${user.position}</td>
+									<td class="text-white">${user.backNum}</td>
 									</tr>
 								</c:forEach>
 
