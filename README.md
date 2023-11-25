@@ -48,4 +48,4 @@ Soccer_deploy 프로젝트는 기존 축구동호회에서 일정관리, 경기�
   - 공지사항을 통해 관리자는 유저들에게 특이사항을 공유할 수 있습니다.
 ---
 # DB 구조
-![image](https://github.com/alzkdpf999/javaproject/assets/100851583/e539bb08-4fb2-4270-9327-1689b4cbfee4)
+![image](https://github.com/songhunhwa/songhunhwa.github.com/assets/100851583/92b5c664-256e-4245-b785-921614b8533f)
