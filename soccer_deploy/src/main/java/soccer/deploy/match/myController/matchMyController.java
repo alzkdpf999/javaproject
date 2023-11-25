@@ -26,7 +26,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import lombok.extern.slf4j.Slf4j;
-import soccer.deploy.MyEntry.EntryMyService;
+
 import soccer.deploy.entry.entity.Entry;
 import soccer.deploy.entry.repository.JpaEntryRepository;
 import soccer.deploy.entry.service.EntryService;
@@ -46,8 +46,6 @@ import soccer.deploy.user.service.UserService;
 @Slf4j
 public class matchMyController {
 	
-	@Autowired
-	private EntryMyService entryMyService;
 	@Autowired
 	private matchDao MatchDao; 
 	@Autowired
