@@ -135,4 +135,27 @@ public class MatchChoungServiceImpl implements MatchChoungService{
 			return jpaMatchRepository.findByDate(year.concat("/").concat(month));
 		}
 	}
+	
+	@Override
+	public List<Match> findByDateMatch(String year, String month) {
+		LocalDate now = LocalDate.now();
+		DateTimeFormatter formatter;
+		String formatedNow;
+		if(year.equals("first") && month.equals("first") ) {
+			formatedNow = dao.matchDate();		
+			return jpaMatchRepository.findByDate(formatedNow);
+		}else if(year.equals("first") && !month.equals("first")) {
+			formatter = DateTimeFormatter.ofPattern("yy/");
+			formatedNow = now.format(formatter);	
+			formatedNow.concat(month);
+
+			return jpaMatchRepository.findByDate(formatedNow.concat(month));
+		}else if(!year.equals("first") && month.equals("first")) {
+			formatter = DateTimeFormatter.ofPattern("/MM");
+			formatedNow = now.format(formatter);	
+			return jpaMatchRepository.findByDate(year.concat(formatedNow));
+		}else {
+			return jpaMatchRepository.findByDate(year.concat("/").concat(month));
+		}
+	}
 }	

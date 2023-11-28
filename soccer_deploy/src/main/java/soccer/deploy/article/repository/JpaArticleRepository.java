@@ -24,10 +24,10 @@ public interface JpaArticleRepository extends JpaRepository<Article, String>{
 	
 	public Optional<Article> findFirstByWriterOrderByRegdateDesc(String writer);
 	
-	@Query(value="SELECT a FROM Article a where a.articleId = a.groupNo AND a.boardId=:boardId AND (LOWER(a.content) LIKE LOWER(CONCAT(:searchValue,'%')) OR LOWER(a.subject) LIKE LOWER(CONCAT(:searchValue,'%')))")
+	@Query(value="SELECT a FROM Article a where a.articleId = a.groupNo AND a.boardId=:boardId AND (LOWER(a.content) LIKE LOWER(CONCAT(:searchValue,'%')) OR LOWER(a.writer) LIKE LOWER(CONCAT(:searchValue,'%')) OR LOWER(a.subject) LIKE LOWER(CONCAT(:searchValue,'%')))")
 	public Page<Article> findArticle(@Param("boardId") Long boardId, @Param("searchValue") String searchValue , Pageable pageable);
 	
-	@Query(value= "select prev, next from (SELECT group_no as groupNo,LAG(group_no) over (ORDER By group_no ) as prev,LEAD(group_no)  over (ORDER By group_no ) as next from article  where article.board_id=:boardId and (article.content like concat(:searchValue,'%') or article.subject like concat(:searchValue,'%')) ) where groupNo = :groupNo and (prev is null or next is null or prev <> :groupNo or next <> :groupNo) ",nativeQuery = true)
+	@Query(value= "select prev, next from (SELECT group_no as groupNo,LAG(group_no) over (ORDER By group_no ) as prev,LEAD(group_no)  over (ORDER By group_no ) as next from article  where article.board_id=:boardId and (article.writer like concat(:searchValue,'%') or article.subject like concat(:searchValue,'%') or article.writer like concat(:searchValue,'%') ) ) where groupNo = :groupNo and (prev is null or next is null or prev <> :groupNo or next <> :groupNo) ",nativeQuery = true)
 	public List<ArticleDto> prevNext(@Param("boardId") Long boardId,@Param("groupNo") Long groupNo, @Param("searchValue") String searchValue);
 	
 	public List<Article> findAllByBoardIdAndGroupNoOrderByOrderNo(Long boardId,Long groupNo);

@@ -69,11 +69,13 @@ public class matchMyController {
 	@GetMapping
 	public String matchList(Model model,@RequestParam(value="matchYear",required = false, defaultValue = "first") String matchYear, 
 			@RequestParam(value="matchMonth",required = false,defaultValue = "first") String matchMonth, HttpSession session) {
-		model.addAttribute("result", matchService.findByDate(matchYear, matchMonth));
+		
 		model.addAttribute("year", m.matchYear());
-		model.addAttribute("month",m.month());
+		String month = m.month();
+		model.addAttribute("month",month);
 		List<String> entryList = new ArrayList<String>();
-		List<Match> match = matchService.findByDate(matchYear, matchMonth);
+		List<Match> match = matchService.findByDateMatch(matchYear, matchMonth);
+		model.addAttribute("result", match);
 		model.addAttribute("expiration", m.matchExpiration(match));
 		User user = (User)session.getAttribute("loginUser");
 		log.info("로그인 유저{}",user);

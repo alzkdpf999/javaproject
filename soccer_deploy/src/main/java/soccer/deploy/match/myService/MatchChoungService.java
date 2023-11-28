@@ -24,6 +24,8 @@ public interface MatchChoungService {
 	
 	public List<Match> findByDate(String year, String month);
 	
+	public List<Match> findByDateMatch(String year, String month);
+	
 	
 	public HashMap<String,List<rank>> recentTwoMatchPlayer(List<Long> id);
 	

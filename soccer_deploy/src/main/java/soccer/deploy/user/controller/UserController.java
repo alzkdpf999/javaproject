@@ -77,6 +77,11 @@ public class UserController {
 	@PostMapping("/login")
 	public String login(@Validated @ModelAttribute("loginForm") LoginForm loginForm , BindingResult bindingResult, HttpServletResponse response,
 						@RequestParam(name = "redirect", defaultValue = "/") String redirect, Model model , HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		if(!redirect.equals("http://localhost/user/login")) {
+			log.info("{}",redirect);
+			session.setAttribute("refer", redirect);
+		}
 		
 		if(bindingResult.hasErrors()) {
 			log.info("헤즈에러 부분");
@@ -98,10 +103,11 @@ public class UserController {
 		response.addCookie(loginCookie);
 		model.addAttribute("loginUser", loginCookie);
 		*/
-		
 		/* Session으로 로그인 */
-		HttpSession session = request.getSession();
+		
+		
 		session.setAttribute("loginUser", loginUser);
+		
 		
 		/*
 		 * 로그인 후 로그인 하기 전 페이지로 redirect하기
@@ -109,7 +115,7 @@ public class UserController {
 //		String uri = request.getHeader("Referer");
 //		request.getSession().setAttribute("prevPage", uri);
 //		redirect=(String)session.getAttribute("prevPage");
-		return "redirect:"+redirect;
+		return "redirect:"+session.getAttribute("refer");
 	}
 	
 	@GetMapping("/logout")
@@ -122,6 +128,8 @@ public class UserController {
 		*/
 		HttpSession session = request.getSession(false);
 		if(session != null) {
+			session.removeAttribute("refer");
+			session.removeAttribute("loginUser");
 			session.invalidate();
 		}
 		return "redirect:/";
